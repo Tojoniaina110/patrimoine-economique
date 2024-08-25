@@ -1,30 +1,26 @@
-import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Header from "./Components/Header";
-import CreatePossessionPage from "./pages/createPossession";
-import PatrimoinePage from "./pages/patrimoinePage";
-import PossessionListPage from "./pages/possessionList";
-import UpdatePossessionPage from "./pages/updatePossession";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import CreatePossession from './pages/CreatePossessionPage';
+import HomePage from './pages/HomePage';
+import NavBar from './pages/Navbar';
+import PatrimoinePage from './pages/Patrimoine';
+import PossessionList from './pages/Possession';
+import UpdatePossession from './pages/UpdatePossessionPage';
 
-const App = () => {
-  return (
-    <Router>
-      <Header />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Routes>
-        <Route path="/patrimoine" element={<PatrimoinePage />} />
-        <Route path="/possession" element={<PossessionListPage />} />
-        <Route path="/possession/create" element={<CreatePossessionPage />} />
-        <Route
-          path="/possession/:libelle/update"
-          element={<UpdatePossessionPage />}
-        />
-      </Routes>
-    </Router>
-  );
-};
+function App() {
+    return (
+        <Router>
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/possession" element={<PossessionList />} />
+                <Route path="/possession/create" element={<CreatePossession />} />
+                <Route path="/patrimoine" element={<PatrimoinePage />} />
+                <Route path="/possession/:libelle/update" element={<UpdatePossession />} />
+            </Routes>
+        </Router>
+    );
+}
 
 export default App;
